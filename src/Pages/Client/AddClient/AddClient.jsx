@@ -967,7 +967,7 @@ const AddClient = () => {
               </div>
 
               {/* Education & Occupation Tab */}
-              {/* <div
+              <div
                 className="tab-pane fade"
                 id="education"
                 role="tabpanel"
@@ -1102,10 +1102,10 @@ const AddClient = () => {
                     </div>
                   </form>
                 </div>
-              </div> */}
+              </div>
 
               {/* Family Details Tab */}
-              {/* <div
+              <div
                 className="tab-pane fade"
                 id="family"
                 role="tabpanel"
@@ -1549,10 +1549,10 @@ const AddClient = () => {
                     </div>
                   </form>
                 </div>
-              </div> */}
+              </div>
 
               {/* Contact Details Tab */}
-              {/* <div
+              <div
                 className="tab-pane fade"
                 id="contact"
                 role="tabpanel"
@@ -1735,10 +1735,10 @@ const AddClient = () => {
                     </div>
                   </div>
                 </div>
-              </div> */}
+              </div>
 
               {/* Other Profile Pictures Tab */}
-              {/* <div
+              <div
                 className="tab-pane fade"
                 id="pictures"
                 role="tabpanel"
@@ -1822,7 +1822,7 @@ const AddClient = () => {
                     ))}
                   </div>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>

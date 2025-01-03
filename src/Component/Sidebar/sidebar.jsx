@@ -80,6 +80,13 @@ const Sidebar = () => {
           </ul>
         </li>
         <li>
+        <div>
+            <Link to="/proposal">
+              <i className="bi bi-file-earmark-text"></i> Proposal
+            </Link>
+          </div>
+        </li>
+        <li>
           <div onClick={() => toggleDropdown("tasks")}>
             <Link to="#">
               <i className="bi bi-calendar4-event"></i> Tasks

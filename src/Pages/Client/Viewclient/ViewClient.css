@@ -66,6 +66,7 @@
   border: none;
   padding: 5px 10px;
   border-radius: 0px;
+  font-size: 12px;
   width: 100%;
   color: white;
 }
@@ -178,6 +179,7 @@ sup {
   border: none;
   color: white;
   padding: 5px 10px;
+  font-size: 14px;
   max-width: fit-content;
 }
 

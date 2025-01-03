@@ -5,7 +5,7 @@ const ClientResponse = () => {
   return (
     <div className="client-response-section">
       {/* Header */}
-      <h4 className="client-response-title">Client Response</h4>
+      <h4>Client Response</h4>
 
       {/* Response Form */}
       <div className="client-response-form">

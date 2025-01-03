@@ -3,10 +3,13 @@ import client1 from "../../../Images/client1.png";
 import call from "../../../Images/call-icon.png";
 import gmail from "../../../Images/Gmail-icon.png";
 import whatsapp from "../../../Images/WhatsApp-icon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import audio from "../../../Images/testing-audio.mp3";
 const ClientReport = () => {
+  const navigate = useNavigate();
   const [callDate, setCallDate] = useState("2023-11-11");
+  const heartProfile = [client1, client1, client1, client1]; // Replace with actual image URLs or data
+
   const profiles = [
     {
       id: 1,
@@ -47,7 +50,6 @@ const ClientReport = () => {
       likes: 28,
       clientImage: client1,
       manageby: "Mr's. Gourav",
-
     },
     {
       id: 3,
@@ -352,20 +354,167 @@ const ClientReport = () => {
       manglik: "No",
     },
   ];
+
+  // pagination code
+  const [currentPage, setCurrentPage] = useState(1);
+  const profilesPerPage = 12;
+  const indexOfLastProfile = currentPage * profilesPerPage;
+  const indexOfFirstProfile = indexOfLastProfile - profilesPerPage;
+  const currentProfiles = profiles.slice(
+    indexOfFirstProfile,
+    indexOfLastProfile
+  );
+  const totalPages = Math.ceil(profiles.length / profilesPerPage);
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+  // pagination code end
+
   return (
     <>
-     <div className="view-client">
+      <div className="view-client">
         <div className="container">
+          <div className="filters mb-3">
+            <div className="row">
+              <div className="col-md-3">
+                <p className="m-0">Filter By: </p>
+                <div className="d-flex gap-2 justify-content-center">
+                  <select name="" className="form-control" id="">
+                    <option value="bulk Actions">Bulk Action</option>
+                    <option value="bulk Actions">Bulk Action</option>
+                    <option value="bulk Actions">Bulk Action</option>
+                    <option value="bulk Actions">Bulk Action</option>
+                  </select>
+                  <button className="all-buttons">Apply</button>
+                </div>
+              </div>
+              <div className="col-md-7">
+                <p className="m-0">Sort By: </p>
+                <div className="d-flex gap-2">
+                  <select name="" className="form-control" id="">
+                    <option value="date">Date Created</option>
+                    <option value="date">Date Created</option>
+                    <option value="date">Date Created</option>
+                  </select>
+                  <select name="" className="form-control" id="">
+                    <option value="export cvs">Export To CVS</option>
+                    <option value="export cvs">Export To CVS</option>
+                    <option value="export cvs">Export To CVS</option>
+                  </select>
+                  <select name="" className="form-control" id="">
+                    <option value="assigned leads">Assigned Leads To</option>
+                    <option value="assigned leads">Assigned Leads To</option>
+                    <option value="assigned leads">Assigned Leads To</option>
+                  </select>
+                </div>
+              </div>
+              <div className="col-md-2">
+                <div className="gap-2 align-center">
+                  <p className="m-0">View :</p>
+                  <select name="" className="form-control" id="">
+                    <option value="">12</option>
+                    <option value="">10</option>
+                    <option value="">8</option>
+                    <option value="">6</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
           <div className="row">
-            {profiles.map((profile) => (
+            {currentProfiles.map((profile) => (
               <div className="col-md-3">
                 <div className="client-card">
                   <div className="view-client-topbar">
                     <input type="radio" name="" id="" />
                     <p>Premium</p>
-                    <div className="heart">
+                    <div
+                      data-bs-toggle="modal"
+                      data-bs-target="#heart-btn"
+                      className="heart"
+                    >
                       <i class="bi bi-heart-fill"></i>
                       <span>20</span>
+                    </div>
+                    <div
+                      class="modal fade"
+                      id="heart-btn"
+                      tabindex="-1"
+                      aria-labelledby="exampleModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog update-profile-modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header modal-header-costom">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                              Modal title
+                            </h1>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <div className="heart-profile-container">
+                              <div className="row">
+                                {heartProfile.map((profile, index) => (
+                                  <div
+                                    className="col-md-2 mt-3 mb-3"
+                                    key={`heart-profile-${index}`}
+                                  >
+                                    <div className="heart-profile-image">
+                                      <img
+                                        src={profile}
+                                        className="w-100"
+                                        alt={`client-profile-${index}`}
+                                      />
+                                      <div
+                                        className="heart-profile-client-buttons"
+                                        style={{ fontSize: "10px" }}
+                                      >
+                                        <button
+                                          data-bs-dismiss="modal"
+                                          onClick={() =>
+                                            navigate("/client-response")
+                                          }
+                                          style={{
+                                            borderRight: "1px solid white",
+                                          }}
+                                        >
+                                          Response
+                                        </button>
+                                        <button>Resend</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="all-buttons"
+                              data-bs-dismiss="modal"
+                            >
+                              Close
+                            </button>
+                            <button type="button" class="all-buttons">
+                              Save changes
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div className="client-image">
@@ -429,7 +578,7 @@ const ClientReport = () => {
                       </div>
                     </div>
                     <div className="client-detail-table">
-                    <div className="client-detail-data">
+                      <div className="client-detail-data">
                         <sup>Managed By</sup>
                         <p>{profile.manageby}</p>
                       </div>
@@ -443,7 +592,7 @@ const ClientReport = () => {
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal"
                       className="client-profile-buttons"
-                      style={{borderRight:'2px solid white'}}
+                      style={{ borderRight: "2px solid white" }}
                     >
                       Update
                     </button>
@@ -1373,10 +1522,31 @@ const ClientReport = () => {
               </div>
             ))}
           </div>
+          <div>
+            <div className="pagination-buttons" style={{ marginTop: "20px" }}>
+              <button
+                className="all-buttons"
+                onClick={handlePreviousPage}
+                disabled={currentPage === 1}
+              >
+                <i class="bi bi-arrow-left-short"></i>
+              </button>
+              <span style={{ margin: "0 10px" }}>
+                Page {currentPage} of {totalPages}
+              </span>
+              <button
+                className="all-buttons"
+                onClick={handleNextPage}
+                disabled={currentPage === totalPages}
+              >
+                <i class="bi bi-arrow-right-short"></i>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ClientReport
+export default ClientReport;
