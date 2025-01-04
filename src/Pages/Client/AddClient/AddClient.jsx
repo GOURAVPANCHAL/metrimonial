@@ -1201,9 +1201,9 @@ const AddClient = () => {
                       <div className="col-md-2 mb-1">
                         <label
                           htmlFor="Father Occupation Detail"
-                          className="form-label"
+                          className="form-label required"
                         >
-                          Father Occupation Detail:
+                          Father Occupation Detail: <span>*</span>
                         </label>
                         <textarea
                           name=""
@@ -1259,8 +1259,8 @@ const AddClient = () => {
 
                       <h4 className="mt-3">Mother's Details</h4>
                       <div className="col-md-2 mb-1">
-                        <label htmlFor="mothersName" className="form-label">
-                          Mother's Name
+                        <label htmlFor="mothersName" className="form-label required">
+                          Mother's Name <span>*</span>
                         </label>
                         <input
                           type="text"
@@ -1297,9 +1297,9 @@ const AddClient = () => {
                       <div className="col-md-2 mb-1">
                         <label
                           htmlFor="mothersOccupation"
-                          className="form-label"
+                          className="form-label required"
                         >
-                          Mother's Occupation
+                          Mother's Occupation<span>*</span>
                         </label>
                         <input
                           type="text"
@@ -1439,9 +1439,9 @@ const AddClient = () => {
                       <div className="col-md-2 mb-1">
                         <label
                           htmlFor="otherFamilyDetails"
-                          className="form-label"
+                          className="form-label required"
                         >
-                          Other Family Details
+                          Other Family Details <span>*</span>
                         </label>
                         <textarea
                           className="form-control"
@@ -1672,10 +1672,10 @@ const AddClient = () => {
                     </div>
                     <div className="col-md-12 mt-3 mb-2">
                       <h4 className="mb-0">
-                        Member's Mobile / Email / Social Media
+                        Social Media Links
                       </h4>
                     </div>
-                    <div className="col-md-2 mb-1">
+                    {/* <div className="col-md-2 mb-1">
                       <label className="form-label" htmlFor="mobileNumber">
                         Mobile Number
                       </label>
@@ -1696,7 +1696,7 @@ const AddClient = () => {
                         className="form-control"
                         placeholder="Enter Email Address"
                       />
-                    </div>
+                    </div> */}
                     <div className="col-md-2 mb-1">
                       <i class="bi bi-instagram"></i>&nbsp;
                       <label className="form-label" htmlFor="instagramUrl">

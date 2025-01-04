@@ -20,6 +20,8 @@ import { BrowserRouter } from "react-router-dom"; // Import BrowserRouter
 import Notification from "./Pages/Notification/Notification";
 import PDF from "./Pages/ClientPDF/PDF";
 import Proposal from "./Pages/Proposal/Proposal";
+import ElitePdf from "./Pages/ClientPDF/ElitePdf";
+import PersonalizePdf from "./Pages/ClientPDF/PersonalizePdf";
 
 const App = () => {
   const location = useLocation();
@@ -55,9 +57,11 @@ const App = () => {
             {/* <Route path="/add-task" element={<AddTask />} /> */}
             <Route path="/add-task-event" element={<AddTaskCalendar />} />
             {/* task section end */}
+            <Route path="/proposal" element={<Proposal />} />
 
             <Route path="/pdf" element={<PDF />} />
-            <Route path="/proposal" element={<Proposal />} />
+            <Route path="/elitepdf" element={<ElitePdf />} />
+            <Route path="/personalizepdf" element={<PersonalizePdf />} />
           </Routes>
         </div>
       </div>
