@@ -1366,8 +1366,8 @@ const AddClient = () => {
 
                       <h4 className="mt-3">Mother's Details</h4>
                       <div className="col-md-2 mb-1">
-                        <label htmlFor="mothersName" className="form-label">
-                          Mother's Name
+                        <label htmlFor="mothersName" className="form-label required">
+                          Mother's Name <span>*</span>
                         </label>
                         <input
                           type="text"
