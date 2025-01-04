@@ -1927,9 +1927,8 @@ const AddClient = () => {
                       </div>
                     ))}
                   </div>
-                </div> */}
-                <button type="submit" className="btn btn-danger" onClick={handleSubmit}> Submit</button>
-              </div>
+                </div>
+              </div> */}
             </div>
           </div>
         </div>

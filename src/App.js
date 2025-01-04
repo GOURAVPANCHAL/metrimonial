@@ -18,6 +18,8 @@ import AddTaskCalendar from "./Pages/Task/AddTaskCalendar/AddTaskCalendar";
 import UserListed from "./Pages/Shortlist/UserListed";
 import { BrowserRouter } from "react-router-dom"; // Import BrowserRouter
 import Notification from "./Pages/Notification/Notification";
+import PDF from "./Pages/ClientPDF/PDF";
+import Proposal from "./Pages/Proposal/Proposal";
 
 const App = () => {
   const location = useLocation();
@@ -53,6 +55,9 @@ const App = () => {
             {/* <Route path="/add-task" element={<AddTask />} /> */}
             <Route path="/add-task-event" element={<AddTaskCalendar />} />
             {/* task section end */}
+
+            <Route path="/pdf" element={<PDF />} />
+            <Route path="/proposal" element={<Proposal />} />
           </Routes>
         </div>
       </div>

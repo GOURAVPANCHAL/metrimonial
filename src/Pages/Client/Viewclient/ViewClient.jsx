@@ -551,9 +551,9 @@ const ViewClient = () => {
   const heartProfile = [client1, client1, client1, client1]; // Replace with actual image URLs or data
   const [open, setOpen] = useState(false);
 
-  const showClientProfile = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
+  // const showClientProfile = () => {
+  //   setOpen((prevOpen) => !prevOpen);
+  // };
 
   const [addTasks, setAddTask] = useState("");
   const ShowAddTask = () => {
@@ -577,12 +577,56 @@ const ViewClient = () => {
 
   return (
     <>
-
       <div className="view-client">
         <div className="container">
-          <div className="filters">
-            
+          <div className="filters mb-3">
+            <div className="row">
+              <div className="col-md-3">
+              <p className="m-0">Filter By: </p>
+                <div className="d-flex gap-2 justify-content-center">
+                  <select name="" className="form-control" id="">
+                    <option value="bulk Actions">Bulk Action</option>
+                    <option value="bulk Actions">Bulk Action</option>
+                    <option value="bulk Actions">Bulk Action</option>
+                    <option value="bulk Actions">Bulk Action</option>
+                  </select>
+                  <button className="all-buttons">Apply</button>
+                </div>
+              </div>
+              <div className="col-md-7">
+                  <p className="m-0">Sort By: </p>
+                <div className="d-flex gap-2">
+                  <select name="" className="form-control" id="">
+                    <option value="date">Date Created</option>
+                    <option value="date">Date Created</option>
+                    <option value="date">Date Created</option>
+                  </select>
+                  <select name="" className="form-control" id="">
+                    <option value="export cvs">Export To CVS</option>
+                    <option value="export cvs">Export To CVS</option>
+                    <option value="export cvs">Export To CVS</option>
+                  </select>
+                  <select name="" className="form-control" id="">
+                    <option value="assigned leads">Assigned Leads To</option>
+                    <option value="assigned leads">Assigned Leads To</option>
+                    <option value="assigned leads">Assigned Leads To</option>
+                  </select>
+                </div>
+              </div>
+              <div className="col-md-2">
+                <div className="gap-2 align-center">
+                <p className="m-0">View :</p>
+                <select name="" className="form-control" id="">
+                  <option value="">12</option>
+                  <option value="">10</option>
+                  <option value="">8</option>
+                  <option value="">6</option>
+                </select>
+                </div>
+              </div>
+            </div>
           </div>
+          <hr />
           <div className="row">
             {profiles.map((profile) => (
               <div className="col-md-3">
@@ -593,7 +637,7 @@ const ViewClient = () => {
                     <div
                       data-bs-toggle="modal"
                       data-bs-target="#heart-btn"
-                      onClick={showClientProfile}
+                      // onClick={showClientProfile}
                       className="heart"
                     >
                       <i className="bi bi-heart-fill"></i>
@@ -633,11 +677,18 @@ const ViewClient = () => {
                                         className="w-100"
                                         alt={`client-profile-${index}`}
                                       />
-                                      <div className="heart-profile-client-buttons" style={{fontSize:'10px'}}>
+                                      <div
+                                        className="heart-profile-client-buttons"
+                                        style={{ fontSize: "10px" }}
+                                      >
                                         <button
-                                        data-bs-dismiss="modal"
-                                        onClick={(()=>navigate('/client-response'))}
-                                          style={{borderRight: "1px solid white"}}
+                                          data-bs-dismiss="modal"
+                                          onClick={() =>
+                                            navigate("/client-response")
+                                          }
+                                          style={{
+                                            borderRight: "1px solid white",
+                                          }}
                                         >
                                           Response
                                         </button>
@@ -974,8 +1025,10 @@ const ViewClient = () => {
                                   </ul>
                                 </div>
                                 {/* Tab Content */}
-                                <div className="tab-content m-0"
-                                  id="myTabContent">
+                                <div
+                                  className="tab-content m-0"
+                                  id="myTabContent"
+                                >
                                   {/* Tab Content 1 */}
                                   <div
                                     className="tab-pane fade show active"
@@ -1033,13 +1086,13 @@ const ViewClient = () => {
                                           style={{ marginTop: "5px" }}
                                           className="all-buttons"
                                         >
-                                          Add Note
+                                          Submit
                                         </button>
                                       </div>
                                       <div style={{ marginTop: "20px" }}>
-                                        <h6>Activity Status</h6>
+                                        <h6>History</h6>
                                         <hr />
-                                        <div>
+                                        {/* <div>
                                           <h6 className="m-0">
                                             Conversation With Prospects
                                           </h6>
@@ -1069,7 +1122,7 @@ const ViewClient = () => {
                                               <option>05-12-2024</option>
                                             </select>
                                           </div>
-                                        </div>
+                                        </div> */}
                                         <div className="profile-activity-status">
                                           {conversations.map((conv, index) => (
                                             <div
